@@ -37,12 +37,12 @@ departments, hospitals, public schools, crime rate all influence my decision of 
 </p>
 <h2>User Requirements: </h2>
 <ul>
-  <li>The software shall provide users the ability to search any location in the US</li>
-  <li>The webapp will generate livability scores based on the queries after pulling data about that location</li>
-  <li>User picks a radius of a specific location to track places to live in</li>
-  <li>User has an option to pick what requirements mean more to them</li>
-  <li>A picture of the map with the desired radius is displayed. The map will be separated into different sections of three colours: Red, Yellow, Green</li>
-  <li>(we could maybe also pull an api on available homes in that area? And return the correct contact info for that apartment?)</li>
+  <li>The software shall provide users the ability to search any location in the US.</li>
+  <li>The webapp will generate livability scores based on the queries after pulling data about that location.</li>
+  <li>User picks a radius of a specific location to track places to live in.</li>
+  <li>User has an option to pick what requirements mean more to them.</li>
+  <li>A picture of the map with the desired radius is displayed. The map will be separated into different sections of three colours: Red, Yellow, Green.</li>
+  <li>When the user picks an area, they can view the available real estates in that area.</li>
 </ul>
 <h2>Data Sources - APIs: </h2>
 <ul>
@@ -52,5 +52,6 @@ departments, hospitals, public schools, crime rate all influence my decision of 
 <li>FBI Crime Data API - crime rates</li>
 <li>Bureau of Labor Statistics' Public Data API - unemployment rate, pensions</li>
 <li>Civil Rights Data Collection API - schools, civil rights, etc. </li>
+  <li>Real Estate Cloud MLS API - real estate searcher </li>
 <li>Google Authentication</li>
 </ul>
