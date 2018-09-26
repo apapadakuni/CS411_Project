@@ -33,24 +33,26 @@ departments, hospitals, public schools, crime rate all influence my decision of 
 <li>Google Authentication</li>
 </ul>
 
-<h2>Workload Estimation: </h2>
-<p>_______.</p>
-<h2>Role in Team: </h2>
-<p>_______.</p>
 
 
 
-<h1>Idea 2: </h1>
+
+<h1>Idea 2:  Calculate “fitness plan” for the day based on transportation schedules, daily walking and fitness goals</h1>
 <h2>Problem Definition: </h2>
-<p>______.</p>
+<p>I have a specific schedule for my work/school. I also want to walk a specific number of miles every day to stay fit, but I don’t know what is the most effective time to walk in between my classes and daily activities. </p>
 <h2>User Story: </h2>
-<p>______.</p>
+<p>With this web app, users will input their tentative schedules (either using Google Calendar or our template calendar) and be able to start their day by setting a distance goal to meet. The application will use traffic, MBTA and distance information to compute the most optimal way for the user to reach this goal, and produce a “route” for them to follow that day, incorporating the bus, T, walking and a car (if applicable), to take to and from each of their destinations.</p>
 <h2>User Requirements: </h2>
-<p>_______.</p>
+<ul>
+<li>The application takes in the user’s schedule for the week as well the location of each event.</li>
+<li>The system will pull data about public transportation and traffic based on the user’s route/schedule.</li>
+<li>The software can develop a user friendly graphic object of a calendar with all the information displayed.</li>
+<li>The algorithm will compute route options for the user using the MBTA and traffic info, giving path intervals for users to use to walk/meet their fitness goals for the day.</li>
+</ul>
 <h2>Data Sources - APIs: </h2>
-<p>_______.</p>
-<h2>Workload Estimation: </h2>
-<p>_______.</p>
-<h2>Role in Team: </h2>
-<p>_______.</p>
-
+<ul>
+  <li>Google Maps API</li>
+  <li>BU Shuttle Database</li>
+  <li>FitBit API</li>
+  <li>Google Authentication</li>
+</ul>
