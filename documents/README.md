@@ -23,7 +23,16 @@ departments, hospitals, public schools, crime rate all influence my decision of 
   <li>(we could maybe also pull an api on available homes in that area? And return the correct contact info for that apartment?)</li>
 </ul>
 <h2>Data Sources - APIs: </h2>
-<p>_______.</p>
+<ul>
+<li>Indeed API - employment</li>
+<li>Zillow API - rent</li>
+<li>Google Maps API - Transportation</li>
+<li>FBI Crime Data API - crime rates</li>
+<li>Bureau of Labor Statistics' Public Data API - unemployment rate, pensions</li>
+<li>Civil Rights Data Collection API - schools, civil rights, etc. </li>
+<li>Google Authentication</li>
+</ul>
+
 <h2>Workload Estimation: </h2>
 <p>_______.</p>
 <h2>Role in Team: </h2>
