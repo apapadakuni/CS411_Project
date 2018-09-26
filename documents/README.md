@@ -1,7 +1,7 @@
 # CS411_Project
 
 CS 411: Final Project, A4 Team 6
-
+<br>
 <h1>Idea 1:  Calculate “fitness plan” for the day based on transportation schedules, daily walking and fitness goals</h1>
 <h2>Problem Definition: </h2>
 <p>I have a specific schedule for my work/school. I also want to walk a specific number of miles every day to stay fit, but I don’t know what is the most effective time to walk in between my classes and daily activities. </p>
@@ -23,7 +23,7 @@ CS 411: Final Project, A4 Team 6
 </ul>
 
 
-
+<br>
 <h1>Idea 2: Calculate a rating of location </h1>
 <h2>Problem Definition: </h2>
 <p>
