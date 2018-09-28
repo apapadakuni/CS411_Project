@@ -17,8 +17,8 @@ CS 411: Final Project, A4 Team 6
 <h2>Data Sources - APIs: </h2>
 <ul>
   <li>Google Calendar API</li>
-  <li>Google Maps API</li>
   <li>FitBit API</li>
+  <li>Google Maps, Directions API</li>
   <li>Google Authentication</li>
   <li>BU Shuttle Database (?)</li>
 </ul>
