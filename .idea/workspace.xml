@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7e7c6f7-e3de-49a1-a7b6-32a1ee42932b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/client /templates/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/client/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/templates/result.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/templates/result.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -41,14 +42,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="21" />
-          <entry key="html" value="471" />
+          <entry key="html" value="525" />
           <entry key="js" value="246" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="21" />
-          <entry key="HTML" value="471" />
+          <entry key="HTML" value="525" />
           <entry key="JavaScript" value="246" />
         </counts>
       </usages-collector>
@@ -68,8 +69,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/templates/result.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="7" lean-forward="true" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
+            <state relative-caret-position="75">
+              <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -123,6 +124,7 @@
         <option value="$PROJECT_DIR$/client /templates/index.html" />
         <option value="$PROJECT_DIR$/client /templates/result.html" />
         <option value="$PROJECT_DIR$/client/templates/index.html" />
+        <option value="$PROJECT_DIR$/client/templates/result.html" />
       </list>
     </option>
   </component>
@@ -209,12 +211,12 @@
       <updated>1540056720293</updated>
       <workItem from="1540056721469" duration="8925000" />
       <workItem from="1540180360314" duration="4659000" />
-      <workItem from="1540328194471" duration="2861000" />
+      <workItem from="1540328194471" duration="3053000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16445000" />
+    <option name="totallyTimeSpent" value="16637000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="718" height="900" extended-state="0" />
@@ -386,8 +388,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/templates/result.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="7" lean-forward="true" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
+        <state relative-caret-position="75">
+          <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
         </state>
       </provider>
     </entry>
