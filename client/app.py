@@ -13,9 +13,15 @@ app = Flask(__name__)
 #default method is only GET
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    return render_template('index.html')
+    if request.method == 'GET': #if request is get (user navigated to the URL)
+        return render_template('index.html')
+    else:
+        return render_template('result.html')
 
-
+#search page
+@app.route('/result/', methods=['GET','POST'])
+def result():
+    return render_template('result.html')
 
 
 
