@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7e7c6f7-e3de-49a1-a7b6-32a1ee42932b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/templates/result.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/templates/result.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,10 +17,12 @@
     <session id="2039566015">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.0" value="2" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -61,7 +61,7 @@
         <entry file="file://$PROJECT_DIR$/client/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
-              <caret line="8" column="24" lean-forward="true" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
+              <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -135,17 +135,15 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="4" />
-    <option name="y" value="23" />
-    <option name="width" value="1143" />
-    <option name="height" value="877" />
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -173,6 +171,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -212,18 +211,19 @@
       <workItem from="1540056721469" duration="8925000" />
       <workItem from="1540180360314" duration="4659000" />
       <workItem from="1540328194471" duration="3053000" />
+      <workItem from="1540336272617" duration="104000" />
+      <workItem from="1540352527319" duration="5000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16637000" />
+    <option name="totallyTimeSpent" value="16746000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="718" height="900" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.28550932" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.28541225" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
@@ -302,49 +302,17 @@
     <entry file="file://$PROJECT_DIR$/client/app/main.js" />
     <entry file="file://$PROJECT_DIR$/client/app/index.js" />
     <entry file="file://$PROJECT_DIR$/client/app/app.js" />
-    <entry file="file://$USER_HOME$/Downloads/schedule-template/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2663">
-          <caret line="190" column="18" lean-forward="true" selection-start-line="190" selection-end-line="191" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Downloads/schedule-template/index.html" />
     <entry file="file://$PROJECT_DIR$/client/main.js" />
     <entry file="file://$PROJECT_DIR$/client/index.js" />
-    <entry file="file://$USER_HOME$/Downloads/schedule-timeline/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/schedule-timeline/css/style.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$USER_HOME$/Downloads/schedule-timeline/index.html" />
+    <entry file="file://$USER_HOME$/Downloads/schedule-timeline/css/style.css" />
     <entry file="file://$PROJECT_DIR$/client/main.css" />
     <entry file="file://$PROJECT_DIR$/client/event-biking-andreas.html" />
-    <entry file="file://$USER_HOME$/Downloads/schedule-template-master/event-abs-circuit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Downloads/schedule-template-master/event-abs-circuit.html" />
     <entry file="file://$PROJECT_DIR$/client/index.html" />
-    <entry file="file://$USER_HOME$/Downloads/schedule-template-master/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="200" selection-start-line="200" selection-end-line="200" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client /templates/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="56" selection-start-line="5" selection-start-column="56" selection-end-line="5" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Downloads/schedule-template-master/index.html" />
+    <entry file="file://$PROJECT_DIR$/client /templates/main.js" />
     <entry file="file://$PROJECT_DIR$/../../CS460/lab_04/BASIC_APP/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -352,23 +320,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client /templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="62" selection-start-line="28" selection-start-column="62" selection-end-line="28" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client /templates/result.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="40" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../CS411_Project/client /templates/main.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/client /templates/index.html" />
+    <entry file="file://$PROJECT_DIR$/client /templates/result.html" />
+    <entry file="file://$PROJECT_DIR$/../../CS411_Project/client /templates/main.js" />
     <entry file="file://$PROJECT_DIR$/../../CS460/lab_04/SEARCH_APP/templates/index.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -382,7 +336,7 @@
     <entry file="file://$PROJECT_DIR$/client/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
-          <caret line="8" column="24" lean-forward="true" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
+          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
         </state>
       </provider>
     </entry>

@@ -3,15 +3,19 @@
 <head>
     <title>Result:</title>
 </head>
-<h4>From location 1 to location 2: </h4>
-<div>DATA HERE</div>
-<p><strong>Calories burned: </strong>DATA HERE</p>
-<h4>From location 2 to location 3:</h4>
-<div>DATA HERE</div>
-<p><strong>Calories burned: </strong>DATA HERE</p>
-<h4>From location 3 to location 4:</h4>
-<div>DATA HERE</div>
-<p><strong>Calories burned: </strong>DATA HERE</p>
+<h4>From {{event1["name"]}} to {{event2["name"]}}: </h4>
+<p><strong>Miles Walked: </strong>{{results[0].miles}}</p>
+<p><strong>Time needed: </strong>{{results[0].time}} minutes</p>
+<p><strong>Calories burned: </strong>{{results[0].calories}}</p>
+<h4>From {{event2["name"]}} to {{event3["name"]}}: </h4>
+<p><strong>Miles Walked: </strong>{{results[1].miles}}</p>
+<p><strong>Time needed: </strong>{{results[1].time}} minutes</p>
+<p><strong>Calories burned: </strong>{{results[1].calories}}</p>
+<h4>From {{event3["name"]}} to {{event4["name"]}}: </h4>
+<p><strong>Miles Walked: </strong>{{results[2].miles}}</p>
+<p><strong>Time needed: </strong>{{results[2].time}} minutes</p>
+<p><strong>Calories burned: </strong>{{results[2].calories}}</p>
+
 <body>
 </body>
 </html>
