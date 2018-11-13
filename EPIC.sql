@@ -1,3 +1,0 @@
-# Create User Login Credential
-
-CREATE TABLE User_Accounts (UID INT(8) NOT NULL AUTO_INCREMENT, Email VARCHAR(100) NOT NULL, Password VARCHAR(128) NOT NULL, Status VARCHAR(20) NOT NULL, CreateDate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP, LastModified timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY(UID),UNIQUE(Email),INDEX name (UID,Email,CreateDate,LastModified));
