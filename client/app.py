@@ -1,13 +1,17 @@
-'''
-Author: Craig Einstein
-File: search_app.py
-Description: A simple web application that connects to the sakila database and implements a query execution feature
-'''
-
+import flask
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 from API_request import *
+from flaskext.mysql import MySQL
+import flask_login
+
+mysql = MySQL()
 app = Flask(__name__)
 
+app.config['MYSQL_DATABASE_USER'] = 'root'
+app.config['MYSQL_DATABASE_PASSWORD'] = '' #INSERT YOUR MYSQL PASSWORD
+app.config['MYSQL_DATABASE_DB'] = 'cs411_db'
+app.config['MYSQL_DATABASE_HOST'] = 'localhost'
+mysql.init_app(app)
 
 #main page of website
 #default method is only GET
@@ -52,5 +56,5 @@ def index():
 def result():
     return render_template('result.html')
 
-
-
+if __name__ == "__main__":
+	app.run(port=5000, debug=True)
