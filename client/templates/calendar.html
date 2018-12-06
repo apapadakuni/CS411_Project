@@ -77,11 +77,20 @@
         allDaySlot: false,
         selectHelper: true,
         select: function(start, end, allDay) {
-          var title = prompt('Event Title:');
-          var location = prompt('Event Location:');
+          var newEventTitle = prompt('Event Title:');
+          var newEventLocation = prompt('Event Location:');
+            $.ajax({
+                type: "POST",
+                contentType: "application/json;charset=utf-8",
+                url: "/google_calendar_script.py",
+                traditional: "true",
+                //start and end times include dates @andreas
+                data: JSON.stringify({name: newEventTitle, location: newEventLocation, start_time: start, end_time: end}),
+                dataType: "json"
+            });
           if (title) {
             calendar.fullCalendar('renderEvent', {
-                title: title,
+                title: newEventTitle,
                 start: start,
                 end: end,
                 allDay: allDay

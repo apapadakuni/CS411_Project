@@ -80,8 +80,6 @@ def get_googlecalendar_events():
         #creating event dictionary
         parsed_event = {
             "name" : event_name,
-            "year" : start_date.split('-')[0],
-            "month": start_date.split('-')[1],
             "day" : start_date.split('-')[2],
             "start_hour" : start_time.split(':')[0],
             "start_min" : start_time.split(':')[1],
