@@ -198,7 +198,7 @@ def google_calendar():
 @app.route('/add_events', methods=['GET', 'POST'])
 def add_events():
     if request.method == 'GET': #if request is get (user navigated to the URL)
-        return render_template('index.html')
+        return render_template('calendar.html')
     else:
         event1_name = request.form['event1_name']
         event1_start = request.form['event1_start']
