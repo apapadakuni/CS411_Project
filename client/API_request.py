@@ -110,7 +110,7 @@ def can_I_walk_it(event1, event2):
             "time": 0
         }
     else:
-        calories_burnt = get_calories_info_byonlymiles(miles_needed)
+        calories_burnt = get_calories_info_byonlymiles(miles_needed)                #change function here for user needs
         results = {
             "calories": calories_burnt,
             "miles":miles_needed,

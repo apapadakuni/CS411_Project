@@ -35,6 +35,7 @@ google = oauth.remote_app('google',
 @app.route('/sign-in')
 def index():
     #Displayed data in the end
+    print('at index', file = sys.stderr)
     access_token = session.get('access_token')
     if access_token is None:
         return redirect(url_for('login'))
@@ -66,6 +67,7 @@ def index():
     user_first_name = user_info['given_name']
 
     # #Printing just for checking
+    print('yoooo', file = sys.stderr)
     print(user_email, file = sys.stderr)
     print(user_first_name, file = sys.stderr)
     return res.read()
