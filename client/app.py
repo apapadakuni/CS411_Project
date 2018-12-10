@@ -16,6 +16,7 @@ import subprocess
 import os
 import time
 import signal
+import atexit
 # from db_fcns import *     I tried to make it modular, but i couldnt for some reason and it is 6:25am so i m jsut gonna put all DB stuff here
 
 
@@ -73,10 +74,6 @@ time.sleep(1)
 client_DB = MongoClient('mongodb://localhost:27017')
 collection = client_DB['CS411_Project']
 db = collection.users
-
-#LINE UNDERNEATH: kills connection to mongodb, add when USER exits from app
-#os.killpg(os.getpgid(pro.pid), signal.SIGTERM)  # Send the signal to all the process groups
-
 
 
 # You must configure these 3 values from Google APIs console
@@ -152,8 +149,7 @@ def sign_in():
 
     user_exists = db_check_user(user_email)
     if user_exists == True:
-        print("User already exists", file = sys.stderr)
-        #redirect(url_for('show_general_info'))   NEED TO: add an account page where they can update their setting or calendar
+        return redirect(url_for('profile'))
     else:
         res = db_add_user(user_email, user_first_name)
         if (res == -1):
@@ -162,6 +158,18 @@ def sign_in():
         else:
             return redirect(url_for('ask_info'))
 
+@app.route('/profile')
+def profile():
+    user = db.find_one({
+            'email':user_email
+        })
+    name=user['name']
+    age=user['age']
+    height=user['height']
+    weight=user['weight']
+    sex=user['sex']
+    goal=user['min_dist']
+    return render_template('profile.html', name=name,age=age,height=height,weight=weight,sex=sex,goal=goal)
 
 
 @app.route('/login')
@@ -176,7 +184,7 @@ def authorized(resp):
     print('at authorized', file=sys.stderr)
     access_token = resp['access_token']
     session['access_token'] = access_token, ''
-    return redirect(url_for('sign_in'))        
+    return redirect(url_for('sign_in'))
 
 
 @google.tokengetter
@@ -280,12 +288,11 @@ def get_googlecalendar_events():
 def google_calendar():
     a = get_googlecalendar_events()
     print(a, file = sys.stderr)
-
     # with app.app_context():
     #NEED TO: events on calendar can't be deleted or modified. I feel like we should fix that, so that if a user wants to change the location or something
     return render_template('calendar.html', calendar_events=a)
 
-@app.route('/get_calendar_data', methods = ['POST'])
+@app.route('/get_calendar_data', methods = ['GET','POST'])
 def get_calendar_data():
     #NEED TO: events from google calendar need to be sent here as well. I tried to do an asynchronous POST
     #request here through the for loop with the google calendar events but failed. Feel like it will be easy for u
@@ -293,8 +300,12 @@ def get_calendar_data():
     c = request.json
     global user_schedule
     user_schedule.append(c)
+    a = get_googlecalendar_events()
+    user_schedule.append(a)
+    print("TEST")
     print(user_schedule, file = sys.stderr)
-    return "yeet on them"
+    # return "yeet on them"
+    return render_template('calendar.html')
 
 
 
@@ -318,7 +329,7 @@ def add_events():
         return render_template('calendar.html')
 
 
-        
+
 #     else:
 # #         event1_name = request.form['event1_name']
 # #         event1_start = request.form['event1_start']
@@ -368,10 +379,15 @@ def add_events():
 
 #         return render_template('result.html', event1 = event1, event2 = event2, event3= event3, event4 = event4, results = results)
 
-# # #search page
-# # @app.route('/result/', methods=['GET','POST'])
-# # def result():
-# #     return render_template('result.html')
 
 if __name__ == "__main__":
 	app.run(port=5000, debug=True)
+    
+#LINE UNDERNEATH: kills connection to mongodb, add when USER exits from app
+#os.killpg(os.getpgid(pro.pid), signal.SIGTERM)  # Send the signal to all the process groups
+
+# ANDREAS: OS command isn't working
+# def exit_handler():
+#     os.killpg(os.getpgid(pro.pid), signal.SIGTERM)
+#     print("bye")
+# atexit.register(exit_handler)
