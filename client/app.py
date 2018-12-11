@@ -354,7 +354,10 @@ def get_calendar_data():
 @app.route('/make_schedule', methods = ['GET','POST'])
 def make_schedule():
     # print(user_schedule, file = sys.stderr)
+    global user_schedule
     db_update_calendar(user_email, user_schedule)
+    # global user_schedule
+    user_schedule = []
     all_user_info = db.find_one({
         'email':user_email
         })
