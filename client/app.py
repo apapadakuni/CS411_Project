@@ -68,6 +68,18 @@ def db_update_calendar(email, cal):
             }
         )
 
+def db_update_schedule(email, sched):
+    for i in sched:
+        db.update({
+            "email":email
+            },
+            {'$push':{
+                "schedule": i
+                    }
+            }
+        )
+
+
 #create connection to db
 pro = subprocess.Popen(["mongod"], stdout = subprocess.PIPE,shell=True, preexec_fn=os.setsid)
 time.sleep(1)
@@ -220,7 +232,7 @@ def select_calendar_options():
 
 
 def get_googlecalendar_events():
-    os.system('token.json')
+    os.system('rm token.json')
     time.sleep(0.3)
     store = file.Storage('token.json')
     creds = store.get()
@@ -276,7 +288,7 @@ def get_googlecalendar_events():
         #creating event dictionary
         parsed_event = {
             "name" : event_name,
-            "day" : (start_date.split('-')[2]),
+            "day" : (start_date),
             "start_hour" : (start_time.split(':')[0]),
             "start_min" : (start_time.split(':')[1]),
             "end_hour" : (end_time.split(':')[0]),
@@ -289,26 +301,52 @@ def get_googlecalendar_events():
 
 @app.route('/google_calendar', methods=['GET','POST'])
 def google_calendar():
-    a = get_googlecalendar_events()
+    user_google_calendar_events = get_googlecalendar_events()
+    print(user_google_calendar_events)
+    new_events = []
+    for a in user_google_calendar_events:
+        new_event = {
+            "name" :a["name"],
+            "start_time" : a["start_hour"] + ":" + a["start_min"],
+            "end_time" : a["end_hour"] + ":" + a["end_min"],
+            "location" : a["location"],
+            "date": a["day"]
+        }
+        new_events.append(new_event)
+    db_update_calendar(user_email, new_events)
+
     print(a, file = sys.stderr)
     # with app.app_context():
     #NEED TO: events on calendar can't be deleted or modified. I feel like we should fix that, so that if a user wants to change the location or something
-    return render_template('calendar.html', calendar_events=a)
+    return render_template('calendar.html', calendar_events=new_events)
 
 @app.route('/get_calendar_data', methods = ['GET','POST'])
 def get_calendar_data():
     #NEED TO: events from google calendar need to be sent here as well. I tried to do an asynchronous POST
     #request here through the for loop with the google calendar events but failed. Feel like it will be easy for u
     #remember to add them in the same format as the actual calendar events
-    c = request.json
-    global user_schedule
-    user_schedule.append(c)
-    a = get_googlecalendar_events()
-    user_schedule.append(a)
-    print("TEST")
-    print(user_schedule, file = sys.stderr)
+    if request.method == 'POST':
+        c = request.json
+        print(c,file = sys.stderr)
+        new_event = {
+            'name' : c['name'],
+            'start_time' : c['start_time'][11:16],
+            'end_time': c['end_time'][11:16],
+            'location': c['location'],
+            'date': c['start_time'][:10]
+        }
+        global user_schedule
+        user_schedule.append(new_event)
+    # a = get_googlecalendar_events()
+    # # user_schedule.append(a)
+    # print("TEST")
+    # print(user_schedule, file = sys.stderr)
     # return "yeet on them"
-    return render_template('calendar.html')
+    all_user_info = db.find_one({
+        'email':user_email
+        })
+    events = all_user_info['calendar_events']
+    return render_template('calendar.html', calendar_events = events)
 
 
 
@@ -316,6 +354,12 @@ def get_calendar_data():
 def make_schedule():
     # print(user_schedule, file = sys.stderr)
     db_update_calendar(user_email, user_schedule)
+    all_user_info = db.find_one({
+        'email':user_email
+        })
+    res = can_I_walk_all_events(all_user_info)          #FROM API REQUEST.py
+    print(res, file = sys.stderr)
+    db_update_schedule(user_email, res)
     return "sup homie"
 
 
@@ -332,55 +376,6 @@ def add_events():
         return render_template('calendar.html')
 
 
-
-#     else:
-# #         event1_name = request.form['event1_name']
-# #         event1_start = request.form['event1_start']
-#         event1_end =  request.form['event1_end']
-#         location1 =  request.form['location1']
-#         event2_name = request.form['event2_name']
-#         event2_start = request.form['event2_start']
-#         event2_end =  request.form['event2_end']
-#         location2 =  request.form['location2']
-#         event3_name = request.form['event3_name']
-#         event3_start = request.form['event3_start']
-#         event3_end =  request.form['event3_end']
-#         location3 =  request.form['location3']
-#         event4_name = request.form['event4_name']
-#         event4_start = request.form['event4_start']
-#         event4_end =  request.form['event4_end']
-#         location4 =  request.form['location4']
-
-#         event1 = {
-#             "name" : str(event1_name),
-#             "start": str(event1_start),
-#             "end" : str(event1_end),
-#             "location" : str(location1)
-#         }
-#         event2 = {
-#             "name" : str(event2_name),
-#             "start": str(event2_start),
-#             "end" : str(event2_end),
-#             "location" : str(location2)
-#         }
-#         event3 = {
-#             "name" : str(event3_name),
-#             "start": str(event3_start),
-#             "end" : str(event3_end),
-#             "location" : str(location3)
-#         }
-#         event4 = {
-#             "name" : str(event4_name),
-#             "start": str(event4_start),
-#             "end" : str(event4_end),
-#             "location" : str(location4)
-#         }
-#         results = [dict] * 3
-#         results[0] = can_I_walk_it(event1, event2)
-#         results[1] = can_I_walk_it(event2, event3)
-#         results[2] = can_I_walk_it(event3, event4)
-
-#         return render_template('result.html', event1 = event1, event2 = event2, event3= event3, event4 = event4, results = results)
 
 
 if __name__ == "__main__":

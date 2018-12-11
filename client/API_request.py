@@ -88,12 +88,12 @@ def get_google_directions(origin, destination):
     }
     return results
 
-def can_I_walk_it(event1, event2):
+def can_I_walk_it(event1, event2, user):
     google_res = get_google_directions(event1["location"],event2["location"])
     time_needed = google_res["minutes"]
     miles_needed = google_res["miles"]
-    hour1 = event1["end"]
-    hour2 = event2["start"]
+    hour1 = event1["end_time"]
+    hour2 = event2["start_time"]
     print(hour1[0:2])
     print(hour2)
     hour1 = int(hour1[0:2])*60+int(hour1[3:5])              #time is in format "xx:xx"
@@ -105,12 +105,12 @@ def can_I_walk_it(event1, event2):
     print(time_needed)
     if (time_available < time_needed):                      #NEED TO: add a public transportation API call, since there is no available time to walk the distance
         results = {
-            "calories": 0,
-            "miles": 0,
-            "time": 0
+            "calories": "You don't have enought time to walk it!",
+            "miles": miles_needed,
+            "time": time_needed
         }
     else:
-        calories_burnt = get_calories_info_byonlymiles(miles_needed)                #change function here for user needs
+        calories_burnt = get_calories_info(miles_needed, user['sex'], user['weight'], user['height'], user['age'])                #change function here for user needs
         results = {
             "calories": calories_burnt,
             "miles":miles_needed,
@@ -118,15 +118,20 @@ def can_I_walk_it(event1, event2):
         }
     return results
 
-# first = {
-#     "location": "700 Commonwealth Avenue, Boston, MA",
-#     "start": "02:00",
-#     "end": "04:00"
-# }
-# second = {
-#     "location": "10 Harbor Point Boulevard",
-#     "start":"06:00",
-#     "end": "08:00"
-# }
+def can_I_walk_all_events(sup):    
+    events = sup['calendar_events']
+    schedule_all_events = []
+    for i in range(0,len(events)-1):
+        event1 = events[i]
+        event2 = events[i+1]
+        if event1['date'] == event2['date']:
+            res = can_I_walk_it(event1, event2, sup)
+            schedule = {
+                "Event_1": event1,
+                "Event_2":event2,
+                "Results": res
+            }
+            schedule_all_events.append(schedule)
+    return schedule_all_events
 
         
