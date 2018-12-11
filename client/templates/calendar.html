@@ -147,8 +147,8 @@
               {% for event in calendar_events %}
                       {
                           title: '{{ event['name'] }}',
-                          start: new Date(y, m, {{event['day']}}, '{{ event['start_hour'] }}', '{{ event['start_min'] }}'),
-                          end: new Date(y, m, {{event['day']}}, '{{ event['end_hour'] }}', '{{ event['end_min'] }}'),
+                          start: new Date(y, m, {{event['date'].split('-')[2]}}, '{{ event['start_time'][:2] }}', '{{ event['start_time'][3:5] }}'),
+                          end: new Date(y, m, {{event['date'].split('-')[2]}}, '{{ event['end_time'][:2] }}', '{{ event['end_time'][3:5] }}'),
                           allDay: false,
                           className: 'important',
                       },
