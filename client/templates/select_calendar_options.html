@@ -1,14 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr" xmlns="http://www.w3.org/1999/html">
 <head>
-    <meta charset="UTF-8">
-    <title>Select your preferred calendar</title>
+    <meta charset="utf-8">
+    <title>Profile</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="{{ url_for('static', filename='vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet"
+          type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
+          rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='vendor/simple-line-icons/css/simple-line-icons.css') }}"
+          rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', filename='css/stylish-portfolio.min.css') }}" rel="stylesheet">
 </head>
-<h1>Select your preferred calendar:</h1>
-<body>
-<form id="calendar" method="POST" action="/google_calendar" >
-    <button type="submit" class="cal_pref">Use my Google Calendar</button> </form>
-<form id="calendar" action="/add_events" >
-    <button type="submit" class="cal_pref">Input my own schedule</button></form>
+<body id="page-top">
+<!-- Header -->
+<header class="masthead d-flex">
+    <div class="container text-center my-auto">
+        {% if name %}
+        <h2 class="mb-1"> Welcome, {{name}}!</h2>
+        {%endif%}
+        <br>
+        <h3 class="mb-5">
+            <form id="calendar" method="POST" action="/google_calendar">
+                <button class="btn btn-primary btn-xl js-scroll-trigger">Use my Google Calendar</button>
+            </form>
+            <br>
+            <br>
+            <form id="calendar" action="/add_events">
+                <button class="btn btn-primary btn-xl js-scroll-trigger">Input my own schedule</button>
+            </form>
+        </h3>
+    </div>
+</header>
 </body>
 </html>

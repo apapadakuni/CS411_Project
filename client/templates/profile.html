@@ -1,27 +1,65 @@
-  </<!DOCTYPE html>
-  <html lang="en" dir="ltr">
-    <head>
-      <meta charset="utf-8">
-      <title>Profile</title>
-    </head>
-    <h1>{% if name %}
-        Welcome back, {{name}}!
-      {%endif%}
-    </h1>
-    <body>
-    <a href="/get_calendar_data">Go to your calendar</a><br>
-    <a href="/make_schedule">View your schedule</a><br>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <title>Profile</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
-    Your info:<br>
-    Age:
-    {{age}}<br>
-    Sex:
-    {{sex}}<br>
-    Height (cm):
-    {{height}}<br>
-    Weight (kg):
-    {{weight}}<br>
-    Goal:
-    {{goal}}<br>
-    </body>
-  </html>
+    <!-- Custom Fonts -->
+    <link href="{{ url_for('static', filename='vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet"
+          type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
+          rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='vendor/simple-line-icons/css/simple-line-icons.css') }}"
+          rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', filename='css/stylish-portfolio.min.css') }}" rel="stylesheet">
+</head>
+<body id="page-top">
+<!-- Header -->
+<header class="masthead d-flex">
+    <div class="container text-center my-auto">
+        {% if name %}
+        <h2 class="mb-1"> Welcome back, {{name}}!</h2>
+        {%endif%}
+        <br>
+        <h3 class="mb-5">
+            <form id="cal_data" method="POST" action="/get_calendar_data">
+                <button class="btn btn-primary btn-xl js-scroll-trigger"> Go to your calendar
+                </button>
+            </form>
+            <br>
+            <form id="get_sched" method="POST" action="/make_schedule">
+                <button class="btn btn-primary btn-xl js-scroll-trigger"> View your schedule</button>
+            </form>
+        </h3>
+        <h2>
+        Your info:<br>
+        Age:
+        {{age}}<br>
+        Sex:
+        {{sex}}<br>
+        Height (cm):
+        {{height}}<br>
+        Weight (kg):
+        {{weight}}<br>
+        Goal:
+        {{goal}}<br>
+        </h2>
+    </div>
+    <div class="overlay"></div>
+</header>
+<!-- Bootstrap core JavaScript -->
+<script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+<!-- Plugin JavaScript -->
+<script src="{{ url_for('static', filename='vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+
+<!-- Custom scripts for this template -->
+<script src="{{ url_for('static', filename='js/stylish-portfolio.min.js') }}"></script>
+
+</body>
+</html>

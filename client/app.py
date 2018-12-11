@@ -212,8 +212,11 @@ def ask_info():
 @app.route('/select_calendar_options', )
 def select_calendar_options():
     print('at select_calendar_options', file = sys.stderr)
-
-    return render_template('select_calendar_options.html')
+    user = db.find_one({
+            'email':user_email
+        })
+    name=user['name']
+    return render_template('select_calendar_options.html', name=name)
 
 
 def get_googlecalendar_events():
@@ -382,7 +385,7 @@ def add_events():
 
 if __name__ == "__main__":
 	app.run(port=5000, debug=True)
-    
+
 #LINE UNDERNEATH: kills connection to mongodb, add when USER exits from app
 #os.killpg(os.getpgid(pro.pid), signal.SIGTERM)  # Send the signal to all the process groups
 

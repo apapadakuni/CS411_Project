@@ -13,10 +13,13 @@
 
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
+  <link href="{{ url_for('static', filename='css/stylish-portfolio.min.css') }}" rel="stylesheet">
+
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
 
   <script  src="{{ url_for('static', filename='js/index.js') }}"></script>
-  
+
+
 </head>
 
 <body>
@@ -29,9 +32,9 @@
       var y = date.getFullYear();
       var i = 2;
       /*  className colors
-		
+
       className: default(transparent), important(red), chill(pink), success(green), info(blue)
-		
+
       */
       /* initialize the external events
       -----------------------------------------------------------------*/
@@ -136,9 +139,9 @@
         //     allDay: false,
         //     className: 'important'
         //   },
-          
+
         // ],
-        // // 
+        // //
         events: [
             {% if calendar_events %}
               {% for event in calendar_events %}
@@ -151,18 +154,19 @@
                       },
               {% endfor %}
             {% endif %}
-        
+
         ],
       });
     });
   </script>
   <style>
     body {
+      background: #bcdee7;
       margin-bottom: 40px;
       margin-top: 40px;
       text-align: center;
       font-size: 14px;
-      font-family: "Open Sans", sans-serif;
+      font-family: "Source Sans Pro", sans-serif;
      }
 
     #wrap {
@@ -217,21 +221,20 @@
     }
   </style>
 </div>
-<form id="calendar" method="GET" action="/make_schedule" >
-    <button type="submit" class="cal_pref">Get My Schedule!</button> 
-
-  </form>
-<form id="profile" method="GET" action="/profile" >
-  <button type="submit" class="cal_pref">My Profile</button>
-
-</form>
+<div class="container text-center my-auto">
+    <form style ='float: left; padding: 5px; margin-left: 100px' id="profile" method="GET" action="/profile" >
+      <button type="submit" class="btn btn-primary btn-xl js-scroll-trigger" >My Profile</button>
+    </form>
+    <form style ='float: left; padding: 5px;' id="schedule" method="GET" action="/make_schedule" >
+      <button type="submit" class="btn btn-primary btn-xl js-scroll-trigger">Get My Schedule!</button>
+    </form> <br>
+</div>
   <div id='wrap'>
 
     <div id='calendar'></div>
 
     <div style='clear:both'></div>
   </div>
-
 </body>
 
 </html>
