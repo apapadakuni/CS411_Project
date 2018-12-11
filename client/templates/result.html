@@ -20,23 +20,20 @@
 <body id="page-top">
 <!-- Header -->
 <header class="masthead d-flex">
+    <form style ='float: left; padding: 5px; margin-left: 100px' id="profile" method="GET" action="/profile" >
+        <button type="submit" class="btn btn-primary btn-xl js-scroll-trigger" >My Profile</button>
+    </form> <br>
     <div class="container text-center my-auto">
         <h2 class="mb-3">Your schedule:</i></h2>
-        <h3 class="mb-5">
             {% if results %}
-                {%for result in results %}
-                    {% if result['name'] %}
-                        From {{result['name']}} at {{result['location']}} <br>
-                        to {{results[loop.index]['name']}} at {{results[loop.index]['location']}}:
-                    {% endif %}
-                    {% if result == 'Results' %}
-                        <p><strong>Miles Walked: </strong>{{result['miles']}}</p>
-                        <p><strong>Time needed: </strong>{{result['time']}} minutes</p>
-                        <p><strong>Calories burned: </strong>{{result['calories']}}</p>
-                    {% endif %}
+                {% for result in results %}
+                        From <strong>{{result['Event_1']['name']}}</strong> at {{result['Event_1']['location']}} <br>
+                        to <strong>{{result['Event_2']['name']}}</strong> at {{result['Event_2']['location']}}:<br>
+                        <p><strong>Miles Walked: </strong>{{result['Results']['miles']}}</p>
+                        <p><strong>Time needed: </strong>{{result['Results']['time']}} minutes</p>
+                        <p><strong> Calories burned: </strong>{{result['Results']['calories']}}</p>
                 {% endfor %}
             {% endif %}
-        </h3>
     </div>
     <div class="overlay"></div>
 </header>

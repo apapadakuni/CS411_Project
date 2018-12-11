@@ -39,7 +39,7 @@ def db_check_user(email):
     else:
         return True
 
-def db_update_personal_info(email, height, weight, sex, age, dist):
+def db_update_personal_info(email, height, weight, sex, age):
     #assuming they are already registered as a user
     try:
         db.update({
@@ -50,7 +50,6 @@ def db_update_personal_info(email, height, weight, sex, age, dist):
             'weight': weight,
             'sex': sex,
             'age': age,
-            'min_dist': dist
             }}, multi = False)
         return 0
     except:
@@ -180,8 +179,7 @@ def profile():
     height=user['height']
     weight=user['weight']
     sex=user['sex']
-    goal=user['min_dist']
-    return render_template('profile.html', name=name,age=age,height=height,weight=weight,sex=sex,goal=goal)
+    return render_template('profile.html', name=name,age=age,height=height,weight=weight,sex=sex)
 
 
 @app.route('/login')
@@ -214,8 +212,7 @@ def ask_info():
         user_height = str(request.form['user_height'])
         user_weight = str(request.form['user_weight'])
         user_sex = str(request.form['user_sex'])
-        user_dist = str(request.form['user_miles_goal'])
-        res = db_update_personal_info(user_email, user_height, user_weight, user_sex, user_age, user_dist)
+        res = db_update_personal_info(user_email, user_height, user_weight, user_sex, user_age)
         return redirect(url_for('select_calendar_options'))
     else:
         return render_template('ask_info.html')
@@ -342,11 +339,15 @@ def get_calendar_data():
     # print("TEST")
     # print(user_schedule, file = sys.stderr)
     # return "yeet on them"
-    all_user_info = db.find_one({
-        'email':user_email
-        })
-    events = all_user_info['calendar_events']
-    return render_template('calendar.html', calendar_events = events)
+    else:
+        try:
+            all_user_info = db.find_one({
+            'email':user_email
+            })
+            events = all_user_info['calendar_events']
+        except:
+            events = []
+        return render_template('calendar.html', calendar_events = events)
 
 
 
@@ -360,7 +361,7 @@ def make_schedule():
     res = can_I_walk_all_events(all_user_info)          #FROM API REQUEST.py
     print(res, file = sys.stderr)
     db_update_schedule(user_email, res)
-    return "sup homie"
+    return render_template('result.html', results=res)
 
 
 
