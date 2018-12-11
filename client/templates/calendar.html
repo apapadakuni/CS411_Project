@@ -82,6 +82,16 @@
         select: function(start, end, allDay) {
           var newEventTitle = prompt('Event Title:');
           var newEventLocation = prompt('Event Location:');
+            // $.ajax({
+            //     type: "POST",
+            //     contentType: "application/json;charset=utf-8",
+            //     url: "/get_calendar_data",
+            //     traditional: "true",
+            //     //start and end times include dates @andreas
+            //     data: JSON.stringify({name: newEventTitle, location: newEventLocation, start_time: start, end_time: end}),
+            //     dataType: "json"
+            // });
+          if (newEventTitle) {
             $.ajax({
                 type: "POST",
                 contentType: "application/json;charset=utf-8",
@@ -91,7 +101,6 @@
                 data: JSON.stringify({name: newEventTitle, location: newEventLocation, start_time: start, end_time: end}),
                 dataType: "json"
             });
-          if (newEventTitle) {
             calendar.fullCalendar('renderEvent', {
                 title: newEventTitle,
                 start: start,
