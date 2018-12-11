@@ -117,10 +117,22 @@ def can_I_walk_it(event1, event2, user):
             "time":time_needed
         }
     return results
+    
+def sort_calendar_events(events):
+    for passnum in range(len(events)-1,0,-1):
+        for i in range(passnum):
+            if int(events[i]['date'][8:])>=int(events[i+1]['date'][8:]) and int(events[i]['start_time'][0:2]) > int(events[i+1]['start_time'][0:2]):
+                print("yooo")
+                temp = events[i]
+                events[i] = events[i+1]
+                events[i+1] = temp
+
 
 def can_I_walk_all_events(sup):    
     events = sup['calendar_events']
     schedule_all_events = []
+    sort_calendar_events(events)
+    print(events)
     for i in range(0,len(events)-1):
         event1 = events[i]
         event2 = events[i+1]
@@ -135,3 +147,8 @@ def can_I_walk_all_events(sup):
     return schedule_all_events
 
         
+# sup = {u'name': u'apapadak', u'weight': u'97', u'min_dist': u'2', u'age': u'21', u'sex': u'male', u'height': u'187', u'_id': "ObjectId('5c0fcb0733abd7ba4fc85169')", u'email': u'apapadak@bu.edu', u'calendar_events': [{u'date': u'2018-12-10', u'start_time': u'12:30', u'end_time': u'13:30', u'location': u'21 Quint Ave, Allston, MA', u'name': u'Sleeping'}, {u'date': u'2018-12-10', u'start_time': u'14:30', u'end_time': u'16:00', u'location': u'700 Commonwealth Ave, Boston, MA', u'name': u'Networking'}, {u'date': u'2018-12-10', u'start_time': u'17:00', u'end_time': u'19:30', u'location': u'720 Commonwealth Ave, Boston, MA', u'name': u'CS411'}, {u'date': u'2018-12-13', u'start_time': u'17:00', u'end_time': u'19:00', u'location': u'Boston Commons', u'name': u'Chilling'}, {u'date': u'2018-12-13', u'start_time': u'12:30', u'end_time': u'14:30', u'location': u'Kenmore Square, Boston', u'name': u'Studying'}, {u'date': u'2018-12-13', u'start_time': u'07:00', u'end_time': u'09:30', u'location': u'870 Beacon St, Boston, MA', u'name': u'Visiting my pretend GF'}]}
+# a = can_I_walk_all_events(sup)
+# print(a)
+
+
