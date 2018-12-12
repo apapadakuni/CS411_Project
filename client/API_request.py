@@ -5,8 +5,8 @@ import json
 def get_calories_info(miles, gender, weight, height, age):
     #all necessary information for GET API
     API_ENDPOINT = "https://trackapi.nutritionix.com/v2/natural/exercise"
-    API_ID = "428a1f39"
-    API_KEY = "080f20a722118011a86c2b7f3a32c47a"
+    API_ID = ""
+    API_KEY = ""
     request_url = API_ENDPOINT + "?x-app-id=" + API_ID + "&x-app-key=" + API_KEY + "&x-remote-user-id=0&content-type=application/json"
 
     query = "walked " + str(miles) + "miles"
@@ -30,8 +30,8 @@ def get_calories_info(miles, gender, weight, height, age):
 
 def get_calories_info_byonlymiles(miles):
     API_ENDPOINT = "https://trackapi.nutritionix.com/v2/natural/exercise"
-    API_ID = "428a1f39"
-    API_KEY = "080f20a722118011a86c2b7f3a32c47a"
+    API_ID = ""
+    API_KEY = ""
     request_url = API_ENDPOINT + "?x-app-id=" + API_ID + "&x-app-key=" + API_KEY + "&x-remote-user-id=0&content-type=application/json"
 
     query = "walked " + str(miles) + "miles"
@@ -56,12 +56,12 @@ def get_google_directions(origin, destination):
     url = "https://maps.googleapis.com/maps/api/directions/json"
     querystring = {"origin":origin,
         "destination":destination,
-        "key":"AIzaSyDGs-CyF1VB_8BIHeQ9tE20VBYDV8U8RY4",
+        "key":"",
         "mode":"walking"
         }
     headers = {
         'cache-control': "no-cache",
-        'Postman-Token': "e9e299a8-acd4-47a3-a1c0-a3c1b7cded2d"
+        'Postman-Token': ""
     }
 
     response = requests.request("GET", url, headers=headers, params=querystring)
