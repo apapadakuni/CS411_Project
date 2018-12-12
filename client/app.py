@@ -89,8 +89,8 @@ db = collection.users
 
 # You must configure these 3 values from Google APIs console
 # https://code.google.com/apis/console
-GOOGLE_CLIENT_ID = '279331729673-1187c5t7eja4tao5lmcikbnf443fj040.apps.googleusercontent.com'
-GOOGLE_CLIENT_SECRET = 'aNuew-vKzjQxUz1pZLLigQ-w'
+GOOGLE_CLIENT_ID = ''
+GOOGLE_CLIENT_SECRET = ''
 REDIRECT_URI = '/oauth2callback'  # one of the Redirect URIs from Google APIs console
 # If modifying these scopes, delete the file token.json.
 SCOPES = 'https://www.googleapis.com/auth/calendar.readonly'
